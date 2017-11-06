@@ -1,4 +1,4 @@
-class ArgumentsController < ApplicationController
+class ArgumentsController < OpenReadController
   before_action :set_argument, only: [:show, :update, :destroy]
 
   # GET /arguments
@@ -15,10 +15,10 @@ class ArgumentsController < ApplicationController
 
   # POST /arguments
   def create
-    @argument = Argument.new(argument_params)
+    @argument = current_user.arguments.build(argument_params)
 
     if @argument.save
-      render json: @argument, status: :created, location: @argument
+      render json: @argument, status: :created
     else
       render json: @argument.errors, status: :unprocessable_entity
     end
@@ -41,11 +41,11 @@ class ArgumentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_argument
-      @argument = Argument.find(params[:id])
+      @argument = current_user.arguments.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def argument_params
-      params.require(:argument).permit( :content, :position)
+      params.require(:argument).permit(:content, :position)
     end
 end
