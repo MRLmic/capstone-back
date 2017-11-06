@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :hypotheses
   resources :arguments
   resources :examples, except: %i[new edit]
   post '/sign-up' => 'users#signup'
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: %i[index show]
 
+  resources :arguments, only: [:index, :show, :edit, :delete, :create]
   resources :arguments, only: [:index, :show, :edit, :delete, :create]
 end
