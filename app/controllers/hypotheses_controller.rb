@@ -1,4 +1,4 @@
-class HypothesesController < ApplicationController
+class HypothesesController < OpenReadController
   before_action :set_hypothesis, only: [:show, :update, :destroy]
 
   # GET /hypotheses
@@ -15,7 +15,7 @@ class HypothesesController < ApplicationController
 
   # POST /hypotheses
   def create
-    @hypothesis = Hypothesis.new(hypothesis_params)
+    @hypothesis = current_user.hypotheses.build(hypothesis_params)
 
     if @hypothesis.save
       render json: @hypothesis, status: :created, location: @hypothesis
@@ -41,7 +41,7 @@ class HypothesesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hypothesis
-      @hypothesis = Hypothesis.find(params[:id])
+      @hypothesis = current_user.hypotheses.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
