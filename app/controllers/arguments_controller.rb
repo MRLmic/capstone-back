@@ -46,6 +46,6 @@ class ArgumentsController < OpenReadController
 
     # Only allow a trusted parameter "white list" through.
     def argument_params
-      params.require(:argument).permit(:content, :position)
+      params.require(:argument).permit(:content, :position, :hypothesis_id)
     end
 end

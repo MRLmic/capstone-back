@@ -1,5 +1,5 @@
 class HypothesesController < OpenReadController
-  before_action :set_hypothesis, only: [:show, :update, :destroy]
+  before_action :set_hypothesis, only: [:update, :destroy]
 
   # GET /hypotheses
   def index
@@ -10,6 +10,7 @@ class HypothesesController < OpenReadController
 
   # GET /hypotheses/1
   def show
+    @hypothesis = Hypothesis.find(params[:id])
     render json: @hypothesis
   end
 
