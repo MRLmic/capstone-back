@@ -3,6 +3,8 @@
 
 <h2>An App for Debate</h2>
 
+<img src="https://imgur.com/a/QjZEA" alt="Opinionated Screenshot" title="Opinionated"> 
+
 <a href="https://mrlmic.github.io/opinionated/">See it Live</a>
 <p>This app allows users to enter discussion topics and add arguments on other users' topics.</p>
 
