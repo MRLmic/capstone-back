@@ -3,7 +3,7 @@
 
 <h2>An App for Debate</h2>
 
-<img src="https://i.imgur.com/ZR2hOXw.png" alt="Opinionated Screenshot" title="Opinionated"> 
+<img src="https://i.imgur.com/ZR2hOXw.png" alt="Opinionated Screenshot" title="Opinionated">
 
 <a href="https://mrlmic.github.io/opinionated/">See it Live</a>
 <p>This app allows users to enter discussion topics and add arguments on other users' topics.</p>
@@ -26,5 +26,33 @@
 <li>As a user I want to be able to vote for posts I like to show my support for others users' arguments.</li></ol>
 
 <h5>Back End Deployed<a href=https://powerful-ridge-29659.herokuapp.com> Here</a></h5>
+
+## API
+
+### Arguments
+| Verb   | URI Pattern            | Controller#Action  |
+|--------|------------------------|--------------------|
+| GET    | `/arguments`           | `arguments#index`  |
+| POST   | `/arguments`           | `arguments#create` |
+| PATCH  | `/arguments/:id`       | `arguments#update` |
+| DELETE | `/arguments/:id`       | `arguments#delete` |
+
+### Hypotheses
+| Verb   | URI Pattern            | Controller#Action   |
+|--------|------------------------|---------------------|
+| GET    | `/hypotheses`          | `hypotheses#index`  |
+| GET    | `/hypotheses/:id`      | `hypotheses#show`   |
+| POST   | `/hypotheses`          | `hypotheses#create` |
+| PATCH  | `/hypotheses/:id`      | `hypotheses#update` |
+| DELETE | `/hypotheses/:id`      | `hypotheses#delete` |
+
+### Users
+| Verb   | URI Pattern            | Controller#Action |
+|--------|------------------------|-------------------|
+| POST   | `/sign-up`             | `users#signup`    |
+| POST   | `/sign-in`             | `users#signin`    |
+| DELETE | `/sign-out/:id`        | `users#signout`   |
+| PATCH  | `/change-password/:id` | `users#changepw`  |
+
 
 <h2><a href=https://github.com/MRLmic/opinionated>See the Front End</a></h2>
